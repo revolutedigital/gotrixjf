@@ -312,13 +312,15 @@
 
         .urgency-bar .stock-alert {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 8px;
         }
 
         .urgency-bar .live-dot {
             width: 8px;
+            min-width: 8px;
             height: 8px;
+            margin-top: 6px;
             background: var(--color-light);
             border-radius: 50%;
             animation: live-dot 1s infinite;
@@ -850,7 +852,6 @@
             margin: 0 auto;
             overflow-x: auto;
             border-radius: var(--radius-xl);
-            overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
 
