@@ -847,6 +847,26 @@
             margin-bottom: 48px;
         }
 
+        .comparison-scroll-hint {
+            display: none;
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            margin-bottom: 8px;
+            animation: nudge-scroll 1.5s ease-in-out infinite;
+        }
+
+        @keyframes nudge-scroll {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(6px); }
+        }
+
+        @media (max-width: 768px) {
+            .comparison-scroll-hint {
+                display: block;
+            }
+        }
+
         .comparison-table-wrapper {
             max-width: 900px;
             margin: 0 auto;
@@ -2321,6 +2341,7 @@
                 <h2 class="section-title">Veja quanto você economiza</h2>
             </div>
 
+            <div class="comparison-scroll-hint">Deslize para ver mais →</div>
             <div class="comparison-table-wrapper animate-on-scroll">
                 <table class="comparison-table">
                     <thead>
@@ -3147,6 +3168,15 @@
             document.querySelectorAll('.animate-on-scroll').forEach(el => {
                 observer.observe(el);
             });
+
+            // ===== HIDE COMPARISON SCROLL HINT =====
+            const cWrap = document.querySelector('.comparison-table-wrapper');
+            const cHint = document.querySelector('.comparison-scroll-hint');
+            if (cWrap && cHint) {
+                cWrap.addEventListener('scroll', function() {
+                    cHint.style.display = 'none';
+                }, {once: true, passive: true});
+            }
 
             // ===== SMOOTH SCROLL =====
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
