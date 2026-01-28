@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Reference files (not for deploy)
+avaliacoes/
+prints/
+.claude/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups
+index_old.html
+index_old_2.html
+
+# Node
+node_modules/
+
+# Temp
+*.tmp
+*.log
